@@ -1,0 +1,598 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>java基础 | WJL</title><meta name="author" content="Weijiale"><meta name="copyright" content="Weijiale"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JavaSE_第1章 Java概述学习目标  理解Java语言的跨平台实现原理  理解JDK&#x2F;JRE&#x2F;JVM的组成和作用  能够参照笔记配置环境变量  能够编写HelloWorld程序编译并执行  1.1 JavaSE课程体系介绍1.2 计算机语言概述Java是一种计算机编程语言。 1、计算机语言是什么所谓计算机编程语言，就是人们可以使用编程语言对计算机下达命令，让计算机完成人们需要的功能。 2、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础">
+<meta property="og:url" content="https://weuijiale.gitee.io/java%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="WJL">
+<meta property="og:description" content="JavaSE_第1章 Java概述学习目标  理解Java语言的跨平台实现原理  理解JDK&#x2F;JRE&#x2F;JVM的组成和作用  能够参照笔记配置环境变量  能够编写HelloWorld程序编译并执行  1.1 JavaSE课程体系介绍1.2 计算机语言概述Java是一种计算机编程语言。 1、计算机语言是什么所谓计算机编程语言，就是人们可以使用编程语言对计算机下达命令，让计算机完成人们需要的功能。 2、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://weuijiale.gitee.io/img/top1.jpg">
+<meta property="article:published_time" content="2022-11-02T12:32:29.000Z">
+<meta property="article:modified_time" content="2022-11-04T06:37:38.696Z">
+<meta property="article:author" content="Weijiale">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://weuijiale.gitee.io/img/top1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://weuijiale.gitee.io/java%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'java基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-04 14:37:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/./img/top1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">WJL</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-02T12:32:29.000Z" title="发表于 2022-11-02 20:32:29">2022-11-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-04T06:37:38.696Z" title="更新于 2022-11-04 14:37:38">2022-11-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/java%E5%AD%A6%E4%B9%A0/">java学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>22分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="JavaSE-第1章-Java概述"><a href="#JavaSE-第1章-Java概述" class="headerlink" title="JavaSE_第1章 Java概述"></a>JavaSE_第1章 Java概述</h1><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<li><input disabled="" type="checkbox"> 理解Java语言的跨平台实现原理</li>
+<li><input disabled="" type="checkbox"> 理解JDK/JRE/JVM的组成和作用</li>
+<li><input disabled="" type="checkbox"> 能够参照笔记配置环境变量</li>
+<li><input disabled="" type="checkbox"> 能够编写HelloWorld程序编译并执行</li>
+</ul>
+<h2 id="1-1-JavaSE课程体系介绍"><a href="#1-1-JavaSE课程体系介绍" class="headerlink" title="1.1 JavaSE课程体系介绍"></a>1.1 JavaSE课程体系介绍</h2><h2 id="1-2-计算机语言概述"><a href="#1-2-计算机语言概述" class="headerlink" title="1.2 计算机语言概述"></a>1.2 计算机语言概述</h2><p>Java是一种计算机编程语言。</p>
+<h3 id="1、计算机语言是什么"><a href="#1、计算机语言是什么" class="headerlink" title="1、计算机语言是什么"></a>1、计算机语言是什么</h3><p>所谓计算机编程语言，就是人们可以使用编程语言对计算机下达命令，让计算机完成人们需要的功能。</p>
+<h3 id="2、计算机语言发展"><a href="#2、计算机语言发展" class="headerlink" title="2、计算机语言发展"></a>2、计算机语言发展</h3><ul>
+<li>第一代：机器语言<ul>
+<li>1946年2月14日，世界上第一台计算机ENAC诞生，使用的是最原始的穿孔卡片。这种卡片上使用的语言是只有专家才能理解的语言，它是用二进制代码表示的语言，与人类语言差别极大，这种语言就称为机器语言。机器语言是第一代计算机语言。这种语言本质上是计算机能识别的唯一语言，人类很难理解。以后的语言就是在这个的基础上简化而来。虽然后来发展的语言能让人类直接理解但最终送入计算机的还是这种机器语言。</li>
+</ul>
+</li>
+<li>第二代：汇编语言<ul>
+<li>计算机语言发展到第二代，出现了汇编语言。汇编语言用助记符代替了操作码，用地址符号或标号代替地址码。这样就用符号代替了机器语言的二进制码。汇编语言也称为符号语言。汇编语言是面向机器的，能直接与存储器、接口电路打交道，也能申请中断，因此汇编语言程序能直接管理和控制硬件设备。程序设计人员必须对计算机有相当深入的了解，才能使用汇编语言编制程序。汇编语言缺乏通用性，程序不易移植。不同计算机的汇编语言之间是不能通用的，因为它们各自都有适合于自己机型特点的汇编语言。但是，掌握了一种计算机的汇编语言，有助于学习其他计算机的汇编语言。比起机器语言，汇编大大进步了。尽管还是复杂，用起来容易出错，但在计算机语言发展史上是机器语言向更高级的语言进化的桥梁。</li>
+</ul>
+</li>
+<li>第三代：高级语言<ul>
+<li>当计算机语言发展到第三代时，就进入了“面向人类”的高级语言。高级语言是一种接近于人们使用习惯的程序设计语言。它允许用英文写计算程序，程序中的符号和算式也与日常用的数学式子差不多。高级语言发展于20世纪50年代中叶到70年代，流行的高级语言已经开始固化在计算机内存里了，比如 Basic语言。现在，计算机语言仍然在不断的发展，种类也相当多，比如 FORTRAN语言， COBOL语言，C语言，C++，C#， PASCAL，Java，Python等等。高级语言接近于自然语言和数学语言，容易为人们掌握；独立于机器，有一定的通用性；计算机不能直接识别和执行用高级语言编写的程序，需要使用编译器或者解释器，转换为机器语言才能被识别和执行；用高级语言编写的程序大大提高了编写效率。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、计算机语言分类"><a href="#3、计算机语言分类" class="headerlink" title="3、计算机语言分类"></a>3、计算机语言分类</h3><p><img src="image-20211218091234964.png" alt="image-20211218091234964"></p>
+<h3 id="4、计算机语言排行榜"><a href="#4、计算机语言排行榜" class="headerlink" title="4、计算机语言排行榜"></a>4、计算机语言排行榜</h3><p>TIOBE排行榜是根据互联网上有经验的程序员、课程和第三方厂商的数量，并使用搜索引擎（如Google、Bing、Yahoo!）以及Wikipedia、Amazon、YouTube和Baidu等统计出的排名数据。</p>
+<p><img src="image-20211216101948388.png" alt="image-20211216101948388"></p>
+<p>计算机语言走势</p>
+<p><img src="image-20211218142330176.png" alt="image-20211218142330176"></p>
+<h2 id="1-3-Java语言概述"><a href="#1-3-Java语言概述" class="headerlink" title="1.3 Java语言概述"></a>1.3 Java语言概述</h2><h3 id="1、Java语言发展历史"><a href="#1、Java语言发展历史" class="headerlink" title="1、Java语言发展历史"></a>1、Java语言发展历史</h3><p>Java诞生于SUN（Stanford University Network），09年SUN被Oracle（甲骨文）收购。</p>
+<p>Java之父是詹姆斯.高斯林(James Gosling)。</p>
+<p><img src="image-20210727085728848.png"></p>
+<p>1996年发布JDK1.0版。</p>
+<p>目前最新的版本是Java17。我们学习的Java8。</p>
+<p>将Java取名的是Sun公司的马克 奥颇门（Mark Opperman）。马克 奥颇门是在一家咖啡店与同事品尝咖啡时得到灵感的。Java是印度尼西亚爪哇岛的英文名称，因盛产咖啡而闻名。国外的许多咖啡店用Java来命名或宣传，以彰显其咖啡的品质。Java语言中的许多库类名称，多与咖啡有关，如JavaBeans（咖啡豆）、NetBeans（网络豆）以及ObjectBeans （对象豆）等等。Java使Sun市值大升，一度超过2千亿美元。所有的网络巨头公司为之一振，IBM、HP、微软为Java配置了专门的开发团队，全球几百万软件工程师眷顾于Java，着迷于Java。1982年 Sun公司成立。1986年 Sun公司上市。1995年 Sun公司推出著名的Java编程语言。Sun公司的位置非常像微机争霸战中的苹果公司。它有自己成套的硬件和操作系统，但是它缺乏应用软件。2001年 “9.11”以前，Sun公司市值超过1000亿美元；此后，互联网泡沫破裂，硬件需求大幅减少，它的市值在一个月之内跌幅超过90%。SUN公司的成长用了20年，而衰落只用了1年！</p>
+<table>
+<thead>
+<tr>
+<th align="center">发行版本</th>
+<th align="center">发行时间</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Java</td>
+<td align="center">1995.05.23</td>
+<td align="center">Sun公司在Sun world会议上正式发布Java和HotJava浏览器</td>
+</tr>
+<tr>
+<td align="center">Java 1.0</td>
+<td align="center">1996.01.23</td>
+<td align="center">Sun公司发布了Java的第一个开发工具包</td>
+</tr>
+<tr>
+<td align="center">Java 1.1</td>
+<td align="center">1997.02.19</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java 1.2</td>
+<td align="center">1998.12.08</td>
+<td align="center">拆分成：J2SE（标准版）、J2EE（企业版）、J2ME（小型版）</td>
+</tr>
+<tr>
+<td align="center">Java 1.3</td>
+<td align="center">2000.05.08</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java1.4</td>
+<td align="center">2004.02.06</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>Java 5.0</strong></td>
+<td align="center">2004.09.30</td>
+<td align="center">①版本号从1.4直接更新至5.0；②平台更名为JavaSE、JavaEE、JavaME</td>
+</tr>
+<tr>
+<td align="center">Java 6.0</td>
+<td align="center">2006.12.11</td>
+<td align="center">2009.04.20 Oracle宣布收购SUN公司</td>
+</tr>
+<tr>
+<td align="center">Java 7.0</td>
+<td align="center">2011.07.02</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>Java 8.0</strong></td>
+<td align="center">2014.03.18</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java 9.0</td>
+<td align="center">2017.09.22</td>
+<td align="center">①每半年更新一次；②Java 9.0开始不再支持windows 32位系统</td>
+</tr>
+<tr>
+<td align="center">Java 10.0</td>
+<td align="center">2018.03.21</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>Java 11.0</strong></td>
+<td align="center">2018.09.25</td>
+<td align="center">JDK安装包取消独立JRE安装包，长期支持版本</td>
+</tr>
+<tr>
+<td align="center">Java 12.0</td>
+<td align="center">2019.03.19</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java 13.0</td>
+<td align="center">2019.9.18</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java 14.0</td>
+<td align="center">2020.3.17</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java 15.0</td>
+<td align="center">2020.9</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java16.0</td>
+<td align="center">2021.3</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>Java17.0</strong></td>
+<td align="center">2021.9</td>
+<td align="center">最新的长期支持版本</td>
+</tr>
+</tbody></table>
+<h3 id="2、Java是最好的语言吗？"><a href="#2、Java是最好的语言吗？" class="headerlink" title="2、Java是最好的语言吗？"></a>2、Java是最好的语言吗？</h3><p><img src="image-20211217093810302.png" alt="image-20211217093810302"></p>
+<p>不是，因为在每个领域都有更合适的编程语言。</p>
+<ul>
+<li>C 语言无疑是现代计算机软件编程语言的王者，几乎所有的操作系统都是 C 语言写成的。C语言是面向过程的编程语言。</li>
+<li>C++ 是面向对象的 C 语言，一直在不断的改进。为了与C兼容，C++被迫做出了很多重大的设计妥协，结果导致语言过分华丽，过分复杂。为了与C兼容，C++并没有采用自动内存管理的策略，从而丧失了修正C最严重问题的机会。另外C++的OO设计耦合度过高，导致组件之间出现很厚的粘合层，并且带来了严重的可维护性问题。C++的应用主要集中在GUI（图形化界面）、游戏和多媒体工具包方面，其他地方很少用到。</li>
+<li>C#是.NET开发平台的主语言。.NET开发平台包括虚拟机CLR、公共类库以及编译工具等开发环境，它是Java语言强有力的竞争对手。但是.NET环境只有Windows有。</li>
+<li>Visual Basic主要用于图形化界面程序的设计，目前也是基于.NET平台。</li>
+</ul>
+<ul>
+<li>JavaScript 是能运行在浏览器中的语言，丰富的前端界面离不开 Javascript 的功劳。近年来的 Node.js 又在后端占有一席之地。</li>
+<li>Python 用于系统管理，并通过高性能预编译的库，提供 API 来进行科学计算，文本处理等，是 Linux 必选的解释性语言。Python的应用方向主要是数据分析、人工智能和机器学习、网络爬虫、自动化测试、web开发、科学计算和统计等。Python的优势是语法简洁清晰，也具有丰富和强大的类库。但是Python更像是胶水语言，它通常用于将其他语言（尤其是C/C++）制作的各种模块轻松的联结在一起。而且Python的运行效率非常低。</li>
+<li>PHP是一种通用开源脚本语言。PHP是在服务器端执行的脚本语言。PHP独特的语法混合了C、Java、Perl以及 PHP 自创的语法。利于学习，使用广泛，主要适用于Web开发领域。LAMP（Linux+Apache+MySQL+PHP）免费套装让很多创业公司可以实现快速低成本的搭建公司网站。虽然 PHP语言使用简单，但是一直有安全漏洞问题要解决。多线程支持不好，性能低下，代码不规范等问题。行业领跑者们从着眼未来考虑，在大数据、物联网、人工智能等方面的广泛应用前景下，对待PHP的重视程度就逐渐下降了。</li>
+<li>Ruby 强于 DSL（领域特定语言），程序员可以定义丰富的语义来充分表达自己的思想。</li>
+<li>Erlang 就是为分布式计算设计的，能保证在大规模并发访问的情况下，保持强壮和稳定性。</li>
+<li>Go 语言内置了并发能力，可以编译成本地代码。当前新的网络相关项目，很大比例是由 Go 语言编写的，如 Docker、Kubernetes 等。</li>
+<li>函数式编程有 Lisp，编写 iOS 程序有 Swift/Objective-C。</li>
+<li>R的思想是：它可以提供一些集成的统计工具，但更大量的是它提供各种数学计算、统计计算的函数，从而使使用者能灵活机动的进行数据分析，甚至创造出符合需要的新的统计计算方法 </li>
+<li>SQL 是用于访问和处理关系型数据库的标准语言， 这类数据库包括：MySQL，Oracle, SQL Server, DB2, PostgreSQL，Sybase, Access 等等 </li>
+</ul>
+<p>一句话概括，<strong>能留在排行榜之上的语言，都是好的语言，在其所在的领域能做到最好。</strong></p>
+<h3 id="3、Java语言的特点"><a href="#3、Java语言的特点" class="headerlink" title="3、Java语言的特点"></a>3、Java语言的特点</h3><p>（1）<strong>优点</strong></p>
+<ul>
+<li><strong>面向对象：</strong>Java语言支持封装、继承、多态，面向对象编程，让程序更好达到<code>高内聚</code>，<code>低耦合</code>的标准。</li>
+<li><strong>支持分布式：</strong>Java语言支持Internet应用的开发，在基本的Java应用编程接口中有一个网络应用编程接口（java net），它提供了用于网络应用编程的类库，包括URL、URLConnection、Socket、ServerSocket等。Java的RMI（远程方法激活）机制也是开发分布式应用的重要手段。</li>
+<li><strong>健壮型：</strong>Java的强类型机制、异常处理、垃圾的自动收集等是Java程序健壮性的重要保证。对指针的丢弃是Java的明智选择。</li>
+<li><strong>安全性高：</strong>Java通常被用在网络环境中，为此，Java提供了一个安全机制以防恶意代码的攻击。如：安全防范机制（类ClassLoader），如分配不同的名字空间以防替代本地的同名类、字节代码检查。</li>
+<li><strong>跨平台性：</strong>Java程序（后缀为java的文件）在Java平台上被编译为体系结构中立的字节码格式（后缀为class的文件），然后可以在实现这个Java平台的任何系统中运行。</li>
+</ul>
+<p>（2）<strong>缺点</strong></p>
+<ul>
+<li>语法过于复杂，严谨，对程序员的约束比较多，与python和php等相比入门相对较难。但是一旦学会了，就业岗位需求量大，而且薪资待遇节节攀升。</li>
+<li>一般适用于大型网站开发，整个架构会比较重，对于初创公司开发和维护人员的成本比较高（即薪资高），选择用Java语言开发网站或应用系统的需要一定的经济实力。</li>
+</ul>
+<h3 id="4、Java生态圈"><a href="#4、Java生态圈" class="headerlink" title="4、Java生态圈"></a>4、Java生态圈</h3><p>根据2020年IDC（Internet Data Center互联网数据中心）的最新报告《Java迎来25岁》，超过900万的开发人员代表全球69%的全职开发人员使用Java——比其他任何语言都多。</p>
+<p><strong>Java是目前应用最为广泛的软件开发平台之一。</strong>随着Java以及Java社区的不断壮大，Java 也早已不再是简简单单的一门计算机语言了，它更是一个平台、一种文化、一个社区。</p>
+<p><strong>作为一个平台，</strong>Java虚拟机扮演着举足轻重的作用。除了 Java语言，任何一种能够被编译成字节码的计算机语言都属于Java这个平台。Groovy、Scala、 JRuby、Kotlin等都是Java平台的一部分，它们依赖于Java虚拟机，同时，Java平台也因为它们变得更加丰富多彩。</p>
+<p><strong>作为一种文化，</strong>Java几乎成为了 “开源”的代名词。在Java程序中，有着数不清的开源软件和框架。如Tomcat、Struts, Hibernate, Spring,MyBatis等。就连JDK和JVM自身也有不少开源的实现，如OpenJDK、Apache Harmony。可以说，“共享”的精神在Java世界里体现得淋漓尽致。</p>
+<p><strong>作为一个社区，</strong>Java拥有全世界最多的技术拥护者和开源社区支持，有数不清的论坛和资料。从桌面应用软件、嵌入式开发到企业级应用、后台服务器、中间件，都可以看到Java的身影。其应用形式之复杂、参与人数之众多也令人咋舌。可以说，Java社区已经俨然成为了一个良好而庞大的生态系统。<strong>其实这才是Java最大的优势和财富。</strong></p>
+<h3 id="5、Java技术体系平台"><a href="#5、Java技术体系平台" class="headerlink" title="5、Java技术体系平台"></a>5、Java技术体系平台</h3><ul>
+<li>JavaSE（Java Platform, Standard Edition标准版）：允许您在桌面和服务器上开发和部署Java应用程序。Java提供了丰富的用户界面、性能、多功能性、可移植性和当今应用程序所需的安全性。</li>
+<li>JavaEE（Java Platform, Enterprise Edition企业版）：是为开发企业环境下的应用程序提供的一套解决方案，主要针对于Web应用程序开发。</li>
+<li>JavaME（Java Platform, Micro Edition 小型版）：为互联网上的嵌入式和移动设备上运行的应用提供了一个健壮、灵活的环境：微控制器、传感器、网关、移动电话、个人数字助理（PDA）、电视机顶盒、打印机等等。JavaME包括灵活的用户界面、健壮的安全性、内置的网络协议，以及支持动态下载的网络和离线应用程序。基于JavaME的应用程序在许多设备上都是可移植的，但是利用了每个设备的本机功能。<ul>
+<li>Java Embedded: 用于解锁物联网的智能设备的价值：<br>通过远程市场更新和刷新功能延长产品生命周期和价值；<br>利用Java的可伸缩性、健壮性、可移植性和全套功能，提高生产效率，降低成本，缩短上市时间；<br>在边缘启用快速数据功能；</li>
+<li>Java Card：使安全元件（如智能卡和其他防篡改安全芯片）能够承载采用Java技术的应用程序。Java card提供了一个安全的、可互操作的执行平台，它可以在一个资源受限的设备上存储和更新多个应用程序，同时保持最高的认证级别和与标准的兼容性。</li>
+<li>Java TV：是一种基于JavaME的技术，它为开发在tv和机顶盒设备上运行的java应用程序提供了一个性能良好、安全且易于实现的解决方案。使用Java TV运行时，开发人员可以轻松创建应用程序，例如电子节目指南（EPG）、视频点播（VOD）客户端、游戏和教育应用程序、用于访问Internet数据的应用程序（例如天气、新闻播报器、社交网络）以及大多数蓝光光盘标题上的用户界面和奖金内容。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image-20211217114313652.png" alt="image-20211217114313652"></p>
+<p><img src="image-20211218093009884.png" alt="image-20211218093009884"></p>
+<h2 id="1-4-Java语言跨平台原理（理解）"><a href="#1-4-Java语言跨平台原理（理解）" class="headerlink" title="1.4 Java语言跨平台原理（理解）"></a>1.4 Java语言跨平台原理（理解）</h2><h3 id="1、Java语言跨平台原理"><a href="#1、Java语言跨平台原理" class="headerlink" title="1、Java语言跨平台原理"></a>1、Java语言跨平台原理</h3><p>很多时候，我们写的程序可能要在多个操作系统运行，这个时候就要求我们的程序需要在尽可能不改动的情况下完实现这个目标。不同的语言实现跨平台的方式不同。Java语言实现跨平台是建立在“虚拟机”基础之上的。</p>
+<p>在Java出现之前，最为流行的编程语言是C和C++。如果我们想要在一台使用x86_64指令集的CPU的机器（如个人PC）上运行一个C语言程序，就需要编写一个将C语言翻译成x86_64汇编语言的编译器。如果想要在一台使用arm指令集的CPU的机器（如苹果手机）上，运行一个C语言程序，同样需要编写一个将C语言翻译成arm汇编语言的编译器。这样严重影响了C程序的跨平台性，因为针对特定的指令集开发编译器是一个难度非常大的工作。</p>
+<p><img src="image-20210625083023734.png" alt="image-20210625083023734"></p>
+<p>那么Java是如何解决这个问题的呢？Java设计了一套简洁的虚拟指令集，也就是字节码。如果我们想要在一台机器上运行Java程序，只需要将Java程序编译成字节码就可以了。编写一个将Java程序翻译成Java字节码的编译器，比起编写一个将Java程序翻译成x86_64指令集的编译器来说，要简单得多。可是这里产生了一个问题，难道我们的机器可以直接执行字节码这样的虚拟指令集吗？当然是不能的。我们需要针对不同的指令集，开发对应的字节码解释器。这个工作同样比较简单。</p>
+<p><img src="image-20210625083051577.png" alt="image-20210625083051577"></p>
+<p>Java虚拟机（JVM，Java Virtual Machine）是由软件技术模拟出计算机运行的一个虚拟的计算机，它负责解释执行字节码指令集。也就是说，只要一台机器可以运行Java的虚拟机，那么就能运行Java语言编写的程序。而不同的平台，需要安装不同的Java虚拟机程序。那么我们编写完Java程序之后，需要先将.java的源文件编译为.class的字节码文件，然后在Java虚拟机中来执行这些字节码文件。</p>
+<p><img src="image-20210625083140531.png" alt="image-20210625083140531"></p>
+<p>Java虚拟机的设计不仅仅解决了Java程序跨平台的问题，同时解决了很多语言的跨平台问题。</p>
+<p><img src="image-20210625083156633.png" alt="image-20210625083156633"></p>
+<ul>
+<li>.NET（C#，VB等语言）也有虚拟机，也能实现跨平台，但是只能在Windows操作系统下安装.NET环境。</li>
+<li>C++不受虚拟机的限制，但是需要用不同平台的编译器重新编译一次。需要编写n个版本的编译器。</li>
+<li>Java虚拟机可以配置在MacOS，Windows（PC操作系统）,Linux等上，但是不能配置在WP（Windows Phone），IOS（移动操作系统）上，只能配置在android（移动操作系统）。Java程序可以实现一次编译处处运行。</li>
+</ul>
+<p><img src="image-20211217111217831.png" alt="image-20211217111217831"></p>
+<h3 id="2、JVM、JRE、JDK的关系"><a href="#2、JVM、JRE、JDK的关系" class="headerlink" title="2、JVM、JRE、JDK的关系"></a>2、JVM、JRE、JDK的关系</h3><ul>
+<li><strong>JVM</strong>（Java Virtual Machine ）：Java虚拟机，是运行所有Java程序的假想计算机，是Java程序的运行环境之一，也是Java 最具吸引力的特性之一。我们编写的Java代码，都运行在<strong>JVM</strong> 之上。</li>
+<li>**JRE ** (Java Runtime Environment) ：是Java程序的运行时环境，包含<code>JVM</code> 和运行时所需要的<code>核心类库</code>。</li>
+<li><strong>JDK</strong>  (Java Development’s Kit)：是Java程序开发工具包，包含<code>JRE</code> 和开发人员使用的工具。</li>
+</ul>
+<p>我们想要运行一个已有的Java程序，那么只需安装<code>JRE</code> 即可。</p>
+<p>我们想要开发一个全新的Java程序，那么必须安装<code>JDK</code> ，其内部包含<code>JRE</code>。</p>
+<p><img src="JDKJRE.jpg"></p>
+<p><img src="JDKJREJVM.png" alt="1561383524152"></p>
+<h2 id="1-5-开发环境搭建（掌握）"><a href="#1-5-开发环境搭建（掌握）" class="headerlink" title="1.5 开发环境搭建（掌握）"></a>1.5 开发环境搭建（掌握）</h2><h3 id="1、JDK的下载"><a href="#1、JDK的下载" class="headerlink" title="1、JDK的下载"></a>1、JDK的下载</h3><ul>
+<li><p>下载网址：<a target="_blank" rel="noopener" href="http://www.oracle.com/">www.oracle.com</a> </p>
+</li>
+<li><p>下载步骤：</p>
+<ul>
+<li><p>登录Oracle公司官网，<a href="http://www.oracle.com，如图所示：在底部选择Developers开发者">www.oracle.com，如图所示：在底部选择Developers开发者</a></p>
+<p><img src="%E4%B8%8B%E8%BD%BD1.png" alt="1572254490435"></p>
+</li>
+<li><p>在<strong>Developers</strong>页面中间的技术分类部分，选择<code>Java</code>，单击进入，如图所示：</p>
+<p><img src="image-20211019110551338.png" alt="image-20211019110551338"></p>
+<p>展示的是最新Java版本，例如Java17。单击Download Java，然后选择具体的版本下载。</p>
+<p><img src="image-20211019110843394.png" alt="image-20211019110843394"></p>
+</li>
+<li><p>选择Download Java按钮后</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="image-20211019111110242.png" alt="image-20211019111110242"></p>
+<p><img src="image-20211019111150970.png" alt="image-20211019111150970"></p>
+<p><img src="image-20211019111209831.png" alt="image-20211019111209831"></p>
+<p>选择<strong>Accept License Agreement</strong>，</p>
+<p><img src="image-20211019111252989.png" alt="image-20211019111252989"></p>
+<p>注册或登录后下载</p>
+<p><img src="image-20211019111922387.png" alt="image-20211019111922387"></p>
+<h3 id="2、JDK的安装"><a href="#2、JDK的安装" class="headerlink" title="2、JDK的安装"></a>2、JDK的安装</h3><ul>
+<li><p>安装步骤：</p>
+<ul>
+<li><p>双击<code>jdk-8u202-windows-x64.exe</code>文件，并单击<code>下一步</code>，如图所示：</p>
+<p><img src="jdk1.jpg"></p>
+</li>
+<li><p>取消独立JRE的安装，单击<code>公共JRE前的下拉列表</code>，选择<code>此功能将不可用</code>如图所示：</p>
+<p><img src="jdk2.jpg"></p>
+</li>
+<li><p>修改安装路径，单击更改，如图所示：</p>
+<p><img src="jdk3.jpg"></p>
+</li>
+<li><p>将安装路径修改为<code>D:\develop\Java\jdk1.8.0_202\</code>，并单击确定，如图所示：</p>
+<p><img src="jdk4.jpg"></p>
+</li>
+<li><p>单击下一步，如图所示：</p>
+<p><img src="jdk5.jpg"></p>
+</li>
+<li><p>稍后几秒，安装完成，如图所示：</p>
+<p><img src="jdk6.jpg"></p>
+</li>
+<li><p>目录结构，如图所示：</p>
+<p><img src="jdk7.png" alt="1561386792819"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h3><p>为什么配置path？</p>
+<p>希望在命令行使用javac.exe等工具时，任意目录下都可以找到这个工具所在的目录。</p>
+<p>例如：我们在C:\Users\Irene目录下使用java命令，结果如下：</p>
+<p><img src="1572317249341.png" alt="1572317249341"></p>
+<p>我们在JDK的安装目录的bin目录下使用java命令，结果如下：</p>
+<p><img src="1572317330332.png" alt="1572317330332"></p>
+<p>我们不可能每次使用java.exe，javac.exe等工具的时候都进入到JDK的安装目录下，太麻烦了。我们希望在任意目录下都可以使用JDK的bin目录的开发工具，因此我们需要告诉操作系统去哪里找这些开发工具，这就需要配置path环境变量。</p>
+<h4 id="方案一：只配置path"><a href="#方案一：只配置path" class="headerlink" title="方案一：只配置path"></a>方案一：只配置path</h4><ul>
+<li><p>步骤：</p>
+<ul>
+<li><p>打开桌面上的计算机，进入后在左侧找到<code>计算机</code>，单击鼠标<code>右键</code>，选择<code>属性</code>，如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F1.jpg"></p>
+</li>
+<li><p>选择<code>高级系统设置</code>，如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.jpg"></p>
+</li>
+<li><p>在<code>高级</code>选项卡，单击<code>环境变量</code>，如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F3.jpg"></p>
+</li>
+<li><p>在<code>系统变量</code>中，选中<code>Path</code> 环境变量，<code>双击</code>或者<code>点击编辑</code> ,如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F6.jpg"></p>
+</li>
+<li><p>在变量值的最前面，键入<code>D:\develop\Java\jdk1.8.0_202\bin;</code>  分号必须要写，而且还要是<strong>英文符号</strong>。如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F9.png" alt="1561386643207"></p>
+</li>
+<li><p>环境变量配置完成，<strong>重新开启</strong>DOS命令行，在任意目录下输入<code>javac</code> 命令，运行成功。</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F8.jpg"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="方案二：配置JAVA-HOME-path"><a href="#方案二：配置JAVA-HOME-path" class="headerlink" title="方案二：配置JAVA_HOME+path"></a>方案二：配置JAVA_HOME+path</h4><ul>
+<li><p>步骤：</p>
+<ul>
+<li><p>打开桌面上的计算机，进入后在左侧找到<code>计算机</code>，单击鼠标<code>右键</code>，选择<code>属性</code>，如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F1.jpg"></p>
+</li>
+<li><p>选择<code>高级系统设置</code>，如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.jpg"></p>
+</li>
+<li><p>在<code>高级</code>选项卡，单击<code>环境变量</code>，如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F3.jpg"></p>
+</li>
+<li><p>在<code>系统变量</code>中，单击<code>新建</code> ，创建新的环境变量，如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F4.jpg"></p>
+</li>
+<li><p>变量名输入<code>JAVA_HOME</code>，变量值输入 <code>D:\develop\Java\jdk1.8.0_202</code> ，并单击<code>确定</code>，如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F5.jpg"></p>
+</li>
+<li><p>选中<code>Path</code> 环境变量，<code>双击</code>或者<code>点击编辑</code> ,如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F6.jpg"></p>
+</li>
+<li><p>在变量值的最前面，键入<code>%JAVA_HOME%\bin;</code>  分号必须要写，而且还要是<strong>英文符号</strong>。如图所示：</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F7.jpg"></p>
+</li>
+<li><p>环境变量配置完成，<strong>重新开启</strong>DOS命令行，在任意目录下输入<code>javac</code> 命令，运行成功。</p>
+<p><img src="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F8.jpg"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-6-入门程序HelloWorld（掌握）"><a href="#1-6-入门程序HelloWorld（掌握）" class="headerlink" title="1.6 入门程序HelloWorld（掌握）"></a>1.6 入门程序HelloWorld（掌握）</h2><h3 id="1-6-1-HelloWorld案例"><a href="#1-6-1-HelloWorld案例" class="headerlink" title="1.6.1 HelloWorld案例"></a>1.6.1 HelloWorld案例</h3><h4 id="1、程序开发步骤说明"><a href="#1、程序开发步骤说明" class="headerlink" title="1、程序开发步骤说明"></a>1、程序开发步骤说明</h4><p>JDK安装完毕，可以开发我们第一个Java程序了。</p>
+<p>Java程序开发三步骤：<strong>编写</strong>、<strong>编译</strong>、<strong>运行</strong>。</p>
+<p><img src="%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4.jpg" alt="开发步骤"></p>
+<h4 id="2、编写Java源程序保存-java源文件"><a href="#2、编写Java源程序保存-java源文件" class="headerlink" title="2、编写Java源程序保存.java源文件"></a>2、编写Java源程序保存.java源文件</h4><ol>
+<li><p>在<code>D:\atguigu\javaee\JavaSE20190624\code\day01_code</code> 目录下新建文本文件，完整的文件名修改为<code>HelloWorld.java</code>，其中文件名为<code>HelloWorld</code>，后缀名必须为==.java==。</p>
+</li>
+<li><p>用notepad++等文本编辑器打开（虽然是记事本也可以，但是不够没有关键字颜色标识，不利于初学者学习）</p>
+</li>
+<li><p>在文件中输入如下代码，并且==保存==：</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    	System.out.println(<span class="string">&quot;HelloWorld&quot;</span>);</span><br><span class="line">  	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>友情提示：</p>
+<p>每个字母和符号必须与示例代码一模一样。</p>
+</blockquote>
+<p>第一个<code>HelloWord</code> 源程序就编写完成了，但是这个文件是程序员编写的，JVM是看不懂的，也就不能运行，因此我们必须将编写好的<code>Java源文件</code> 编译成JVM可以看懂的<code>字节码文件</code> ，也就是==.class==文件。</p>
+<h4 id="3、编译Java源文件生成-class字节码文件"><a href="#3、编译Java源文件生成-class字节码文件" class="headerlink" title="3、编译Java源文件生成.class字节码文件"></a>3、编译Java源文件生成.class字节码文件</h4><p>在DOS命令行中，<strong>进入</strong><code>D:\atguigu\javaee\JavaSE20190624\code\day01_code</code><strong>目录</strong>，使用<code>javac</code> 命令进行编译。</p>
+<p>方式一：使用文件资源管理器打开<code>D:\atguigu\javaee\JavaSE20190624\code\day01_code</code><strong>目录</strong>，然后在地址栏输入cmd。</p>
+<p><img src="image-20211217110132270.png" alt="image-20211217110132270"></p>
+<p>方式二：在notepad++软件的文件菜单–&gt;打开所在文件夹–&gt;命令行（要求notepad++软件必须是用管理员权限启动的，否则会出现已经正确配置了环境变量，却仍然找不到javac命令的问题）</p>
+<p><img src="image-20211217110203579.png" alt="image-20211217110203579"></p>
+<p>命令：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac Java源文件名.后缀名</span><br></pre></td></tr></table></figure>
+
+<p>举例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac HelloWorld.java</span><br></pre></td></tr></table></figure>
+
+<p><img src="HelloWorld%E7%BC%96%E8%AF%91%E7%BB%93%E6%9E%9C.png" alt="1561387081272"></p>
+<p>编译成功后，命令行没有任何提示。打开<code>D:\atguigu\javaee\JavaSE20190624\code\day01_code</code>目录，发现产生了一个新的文件 <code>HelloWorld.class</code>，该文件就是编译后的文件，是Java的可运行文件，称为<strong>字节码文件</strong>，有了字节码文件，就可以运行程序了。 </p>
+<blockquote>
+<p>Java源文件的编译工具<code>javac.exe</code></p>
+</blockquote>
+<h4 id="4、运行Java程序"><a href="#4、运行Java程序" class="headerlink" title="4、运行Java程序"></a>4、运行Java程序</h4><p>在DOS命令行中，在字节码文件目录下，使用<code>java</code> 命令进行运行。</p>
+<p>命令：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java 类名字</span><br></pre></td></tr></table></figure>
+
+<p>举例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java HelloWorld</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>友情提示：</p>
+<p>java HelloWord  不要写 不要写 不要写 .class</p>
+</blockquote>
+<p><img src="HelloWorld%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="1561387134284"></p>
+<blockquote>
+<p>Java字节码文件的运行工具：java.exe</p>
+</blockquote>
+<h3 id="1-6-2-HelloWorld案例常见错误"><a href="#1-6-2-HelloWorld案例常见错误" class="headerlink" title="1.6.2 HelloWorld案例常见错误"></a>1.6.2 HelloWorld案例常见错误</h3><ul>
+<li><pre><code>单词拼写问题
+</code></pre>
+</li>
+<li>正确：class        错误：Class</li>
+<li>正确：String              错误：string</li>
+<li>正确：System            错误：system</li>
+<li>正确：main        错误：mian</li>
+<li><pre><code>Java语言是一门严格区分大小写的语言
+</code></pre>
+</li>
+<li><pre><code>标点符号使用问题
+</code></pre>
+</li>
+<li>不能用中文符号，英文半角的标点符号（正确）</li>
+<li>括号问题，成对出现</li>
+</ul>
+<h3 id="1-6-3-Java程序的结构与格式"><a href="#1-6-3-Java程序的结构与格式" class="headerlink" title="1.6.3 Java程序的结构与格式"></a>1.6.3 Java程序的结构与格式</h3><p>结构：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">类&#123;</span><br><span class="line">    方法&#123;</span><br><span class="line">        语句;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>格式：</p>
+<p>（1）每一级缩进一个Tab键</p>
+<p>（2）{}的左半部分在行尾，右半部分单独一行，与和它成对的”{“的行首对齐</p>
+<h3 id="1-6-4-Java程序的入口"><a href="#1-6-4-Java程序的入口" class="headerlink" title="1.6.4 Java程序的入口"></a>1.6.4 Java程序的入口</h3><p>Java程序的入口是main方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-6-5-编写Java程序时应该注意的问题"><a href="#1-6-5-编写Java程序时应该注意的问题" class="headerlink" title="1.6.5 编写Java程序时应该注意的问题"></a>1.6.5 编写Java程序时应该注意的问题</h3><h4 id="1、字符编码问题"><a href="#1、字符编码问题" class="headerlink" title="1、字符编码问题"></a>1、字符编码问题</h4><p>当cmd命令行窗口的字符编码与.java源文件的字符编码不一致，如何解决？</p>
+<p><img src="%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BC%96%E8%AF%91%E4%B9%B1%E7%A0%81.png" alt="1557881223916"></p>
+<p>解决方案一：</p>
+<pre><code>在Notepad++等编辑器中，修改源文件的字符编码
+</code></pre>
+<p><img src="Notepad%E4%BF%AE%E6%94%B9%E6%BA%90%E6%96%87%E4%BB%B6%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.png" alt="1557881271819"></p>
+<p>解决方案二：</p>
+<pre><code>在使用javac命令式，可以指定源文件的字符编码
+</code></pre>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -encoding utf-<span class="number">8</span> Review01.java</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、大小写问题"><a href="#2、大小写问题" class="headerlink" title="2、大小写问题"></a>2、大小写问题</h4><p>（1）源文件名：</p>
+<pre><code>在Windows操作系统中.java的源文件名不区分大小写，我们建议大家养成区分大小写的习惯。
+</code></pre>
+<p>（2）字节码文件名与类名</p>
+<pre><code>严格区分大小写
+</code></pre>
+<p>（3）代码中</p>
+<pre><code>严格区分大小写
+</code></pre>
+<h4 id="3、源文件名与类名一致问题？"><a href="#3、源文件名与类名一致问题？" class="headerlink" title="3、源文件名与类名一致问题？"></a>3、源文件名与类名一致问题？</h4><p>（1）源文件名是否必须与类名一致？public呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如果这个类不是<span class="keyword">public</span>，那么源文件名可以和类名不一致。但是不便于代码维护。</span><br><span class="line"></span><br><span class="line">如果这个类是<span class="keyword">public</span>，那么要求源文件名必须与类名一致。否则编译报错。</span><br><span class="line"></span><br><span class="line">我们建议大家，不管是否是<span class="keyword">public</span>，都与源文件名保持一致，而且一个源文件尽量只写一个类，目的是为了好维护。</span><br></pre></td></tr></table></figure>
+
+<p>（2）一个源文件中是否可以有多个类？public呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一个源文件中可以有多个类，编译后会生成多个.class字节码文件。</span><br><span class="line"></span><br><span class="line">但是一个源文件只能有一个<span class="keyword">public</span>的类。</span><br></pre></td></tr></table></figure>
+
+<p>（3）main方法必须在public的类中吗？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">不是。</span><br><span class="line"></span><br><span class="line">但是后面写代码时，基本上main方法（主方法）习惯上都在<span class="keyword">public</span>类中。</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://weuijiale.gitee.io">Weijiale</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://weuijiale.gitee.io/java%E5%9F%BA%E7%A1%80/">https://weuijiale.gitee.io/java%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://weuijiale.gitee.io" target="_blank">WJL</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/./img/top1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/wjl-sblog/"><img class="next-cover" src="/./img/top1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">wjl'sblog</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NzU2MC8zNDAyNA=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Weijiale</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/WJLE007"><i class="fab fa-github"></i><span>关注我i</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/WJLE007" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到WJL的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaSE-%E7%AC%AC1%E7%AB%A0-Java%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">JavaSE_第1章 Java概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="toc-number">1.1.</span> <span class="toc-text">学习目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-JavaSE%E8%AF%BE%E7%A8%8B%E4%BD%93%E7%B3%BB%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">1.1 JavaSE课程体系介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0"><span class="toc-number">1.3.</span> <span class="toc-text">1.2 计算机语言概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、计算机语言是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、计算机语言发展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.3.</span> <span class="toc-text">3、计算机语言分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E6%8E%92%E8%A1%8C%E6%A6%9C"><span class="toc-number">1.3.4.</span> <span class="toc-text">4、计算机语言排行榜</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0"><span class="toc-number">1.4.</span> <span class="toc-text">1.3 Java语言概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Java%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-number">1.4.1.</span> <span class="toc-text">1、Java语言发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Java%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80%E5%90%97%EF%BC%9F"><span class="toc-number">1.4.2.</span> <span class="toc-text">2、Java是最好的语言吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81Java%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.4.3.</span> <span class="toc-text">3、Java语言的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Java%E7%94%9F%E6%80%81%E5%9C%88"><span class="toc-number">1.4.4.</span> <span class="toc-text">4、Java生态圈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81Java%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.4.5.</span> <span class="toc-text">5、Java技术体系平台</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Java%E8%AF%AD%E8%A8%80%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%8E%9F%E7%90%86%EF%BC%88%E7%90%86%E8%A7%A3%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">1.4 Java语言跨平台原理（理解）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Java%E8%AF%AD%E8%A8%80%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%8E%9F%E7%90%86"><span class="toc-number">1.5.1.</span> <span class="toc-text">1、Java语言跨平台原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81JVM%E3%80%81JRE%E3%80%81JDK%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.5.2.</span> <span class="toc-text">2、JVM、JRE、JDK的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-number">1.6.</span> <span class="toc-text">1.5 开发环境搭建（掌握）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81JDK%E7%9A%84%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.6.1.</span> <span class="toc-text">1、JDK的下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81JDK%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">1.6.2.</span> <span class="toc-text">2、JDK的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.6.3.</span> <span class="toc-text">3、配置环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E5%8F%AA%E9%85%8D%E7%BD%AEpath"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">方案一：只配置path</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E9%85%8D%E7%BD%AEJAVA-HOME-path"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">方案二：配置JAVA_HOME+path</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E5%85%A5%E9%97%A8%E7%A8%8B%E5%BA%8FHelloWorld%EF%BC%88%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-number">1.7.</span> <span class="toc-text">1.6 入门程序HelloWorld（掌握）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-HelloWorld%E6%A1%88%E4%BE%8B"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.6.1 HelloWorld案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4%E8%AF%B4%E6%98%8E"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">1、程序开发步骤说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E7%BC%96%E5%86%99Java%E6%BA%90%E7%A8%8B%E5%BA%8F%E4%BF%9D%E5%AD%98-java%E6%BA%90%E6%96%87%E4%BB%B6"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">2、编写Java源程序保存.java源文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E7%BC%96%E8%AF%91Java%E6%BA%90%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90-class%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6"><span class="toc-number">1.7.1.3.</span> <span class="toc-text">3、编译Java源文件生成.class字节码文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81%E8%BF%90%E8%A1%8CJava%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.7.1.4.</span> <span class="toc-text">4、运行Java程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-HelloWorld%E6%A1%88%E4%BE%8B%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="toc-number">1.7.2.</span> <span class="toc-text">1.6.2 HelloWorld案例常见错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3-Java%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BB%93%E6%9E%84%E4%B8%8E%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.7.3.</span> <span class="toc-text">1.6.3 Java程序的结构与格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-4-Java%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%85%A5%E5%8F%A3"><span class="toc-number">1.7.4.</span> <span class="toc-text">1.6.4 Java程序的入口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-5-%E7%BC%96%E5%86%99Java%E7%A8%8B%E5%BA%8F%E6%97%B6%E5%BA%94%E8%AF%A5%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.7.5.</span> <span class="toc-text">1.6.5 编写Java程序时应该注意的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98"><span class="toc-number">1.7.5.1.</span> <span class="toc-text">1、字符编码问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E5%A4%A7%E5%B0%8F%E5%86%99%E9%97%AE%E9%A2%98"><span class="toc-number">1.7.5.2.</span> <span class="toc-text">2、大小写问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E6%BA%90%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8E%E7%B1%BB%E5%90%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">1.7.5.3.</span> <span class="toc-text">3、源文件名与类名一致问题？</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/java%E5%9F%BA%E7%A1%80/" title="java基础"><img src="/./img/top1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础"/></a><div class="content"><a class="title" href="/java%E5%9F%BA%E7%A1%80/" title="java基础">java基础</a><time datetime="2022-11-02T12:32:29.000Z" title="发表于 2022-11-02 20:32:29">2022-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/wjl-sblog/" title="wjl'sblog"><img src="/./img/top1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="wjl'sblog"/></a><div class="content"><a class="title" href="/wjl-sblog/" title="wjl'sblog">wjl'sblog</a><time datetime="2022-11-02T12:32:29.000Z" title="发表于 2022-11-02 20:32:29">2022-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="java基础语法"><img src="/./img/top1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础语法"/></a><div class="content"><a class="title" href="/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="java基础语法">java基础语法</a><time datetime="2022-11-02T12:32:29.000Z" title="发表于 2022-11-02 20:32:29">2022-11-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Weijiale</div><div class="footer_custom_text">我还在等再见 💗</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
